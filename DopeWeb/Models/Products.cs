@@ -25,5 +25,10 @@ namespace DopeWeb.Models
 
         [Required]
         public decimal Price { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar(500)")]
+
+        public string ImageURL { get; set; }
     }
 }

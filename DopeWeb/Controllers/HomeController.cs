@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DopeWeb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DopeWeb.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -27,6 +29,17 @@ namespace DopeWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult ViewMerchandise()
+        {
+            return View();
+        }
+        public  List<Products> GetProducts() 
+        {
+            var products =  _context.Products.ToList();
+            return products;
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
