@@ -34,10 +34,67 @@ namespace DopeWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult ViewCart() 
+        {
+            return PartialView("ViewCart");
+        }
         public  List<Products> GetProducts() 
         {
             var products =  _context.Products.ToList();
             return products;
+        }
+
+        public void AddToCart(int id, int quantity) 
+        {
+            //check if products are laready in cart and then add more
+            var cartList = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cartList");
+            if(cartList == null) { cartList = new List<Cart>(); }
+            if (!cartList.Contains(new Cart { Id = id, Quantity = quantity })) 
+            {
+                cartList.Add(new Cart { Id = id, Quantity = quantity });
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cartList", cartList);
+            }
+        }
+
+        public List<Cart> GetCartProducts() 
+        {
+            var cartList = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cartList");
+            var productList = new List<Cart>();
+            var products= new List<Products>();
+            foreach(var item in cartList) 
+            {
+                var temp = _context.Products.Where(x => x.Id.Equals(item.Id)).FirstOrDefault();
+                productList.Add(new Cart
+                {
+                    Id=temp.Id,
+                    ImageURL = temp.ImageURL,
+                    Name =temp.Name,
+                    Price=temp.Price,
+                    Quantity=item.Quantity,
+                });
+                products.Add(temp);
+            }
+            return productList;
+
+        }
+
+        public void RemoveFromCart(int id) 
+        {
+            var cartList = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cartList");
+            if (cartList != null) 
+            {
+                var product = cartList.Where(x => x.Id.Equals(id)).FirstOrDefault();
+                cartList.Remove(product);
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cartList", cartList);
+
+            }
+        }
+
+        public void EmptyCart() 
+        {
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "cartList", null);
+
         }
 
 
@@ -46,5 +103,9 @@ namespace DopeWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class Cart:Products {
+        public int Quantity { get; set; }
     }
 }
