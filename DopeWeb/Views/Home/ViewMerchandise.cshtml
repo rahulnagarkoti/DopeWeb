@@ -9,14 +9,13 @@
 <header id="header" class="d-flex align-items-center ">
     <div class="container-fluid d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="index.html">R.A DOPE</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a href="ViewMerchandise">R.A DOPE</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="~/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>              
-
-                <li><button class="btn-buy" id="viewCart" >View Cart</button></li>
+            <ul>
+                    <li><a class="btn-cls" style="padding: 8px 35px 9px 35px; "  href="ViewCart" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#container"   id="viewCart">View Cart</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -37,7 +36,7 @@
                     <h2>Merchandise</h2>
                 </div>
 
-                <div id="main">
+                <div id="mainDiv">
 
 
                 </div>
@@ -68,7 +67,6 @@
                 })
 
             function populateData() {
-                debugger;
                 html = "<div class='row'>";''
                 $.each(products, function (k, v) {
                     var image = v['imageURL'];
@@ -80,11 +78,11 @@
                     var temp = `
                     <div class="col-lg-3 col-md-6">
                         <div class="box">
-                            <img src="../product-images/${image}" class="img" alt="Image">
+                            <img src="../product-images/${image}" class="img-cls" alt="Image">
                             <h4><sup>$</sup>${price}</h4>
                             <b>${name}</b>
                             <div class="btn-wrap">
-                                <button id="${id}" class="btn-buy addToCart">Add To Cart</button>
+                                <button type="button"  id="${id}" class="btn-cls addToCart">Add To Cart</button>
                             </div>
                         </div>
                     </div>`;
@@ -92,7 +90,7 @@
                     html = html.concat(temp);
                 });
                 html = html.concat('</div>')
-                $("#main").append(html);
+                $("#mainDiv").append(html);
             }
         });
 
@@ -111,17 +109,6 @@
                 })
         })
 
-        $("#viewCart").on("click", function ()
-        {
-            $.ajax(
-                {
-                    url: "/Home/ViewCart",
-                    method: "GET",
-                    success: function (response)
-                    {
-                        $("#container").html(response);
-                    }
-                })
-        });
+    
 
     </script>
