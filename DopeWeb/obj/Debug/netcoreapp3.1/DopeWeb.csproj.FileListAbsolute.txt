@@ -385,3 +385,7 @@ C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor
 C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\ViewCart.cshtml.g.cs
+C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Checkout.cshtml.g.cs
+C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Products\Create.cshtml.g.cs
+C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
+C:\Users\nagar\Desktop\My Projects\DopeWeb\DopeWeb\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs

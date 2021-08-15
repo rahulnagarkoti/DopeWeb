@@ -1,0 +1,48 @@
+﻿<section id="pricing" class="pricing">
+    <div class="container">
+        <a href="ViewCart"><b> << Go Back</b></a>
+        <div class="section-title">
+            <h2>Checkout</h2>
+        </div>
+        <form id="form" asp-action="Create"  data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#container">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Product Name</label>
+                    <input id="name" class="form-control" placeholder="Name" />
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label>Available Quantity</label>
+                    <input type="number" id="quantity" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Price</label>
+                    <input type="number" id="price" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Description</label>
+                    <textarea id="desc" class="form-control" rows="5" ></textarea>
+                    <span class="text-danger"></span>
+                </div>
+                
+            </div>
+            <br />
+            
+            <br />
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <button type="submit" class="btn-cls btn-checkout" style="padding: 8px 35px 9px 35px;">Go To Payment</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+</section><!-- End Pricing Section -->

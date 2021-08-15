@@ -10,17 +10,32 @@ body {
 #main {
     background-color: #e7e6e4;
 }
+/*.testimonials    {
+    background-color: #e7e6e4 !important;
+}*/
 
-.socials a:hover {
+subscribeBtn:hover {
+    background: #ff9f86;
+}
+
+.modal-footer a {
+    font-size: xx-large;
+    color: white;
+}
+
+#socials a:hover {
     background: #ff7f5d;
     color: #fff;
     text-decoration: none;
 }
 
-.socials {
-    font-size: xx-large;
-    position: relative;
-    top: -40px;
+#socials a{
+    font-size: xx-large !important;
+    position: relative !important;
+    top: -40px !important;
+}
+.card {
+max-height:400px;
 }
 
 
@@ -122,7 +137,7 @@ body {
 }
 
 .cardDesign {
-    height: 350px;
+    height: 250px;
     width: 100%
 }
 
@@ -652,6 +667,8 @@ section {
 
 .section-bg {
     background-color: #fafafa;
+    position:relative;
+    top: 15px;
 }
 
 .section-title {
@@ -767,7 +784,7 @@ section {
 --------------------------------------------------------------*/
 .our-values .card {
     border: 0;
-    padding: 160px 20px 20px 20px;
+    padding: 50px 10px 10px 10px;
     position: relative;
     width: 100%;
     background-size: cover;
@@ -783,6 +800,7 @@ section {
     transition: 0.3s;
     transition: ease-in-out 0.4s;
     border-radius: 5px;
+    max-height:325px;
 }
 
 .our-values .card-title {
@@ -1630,7 +1648,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: url("../img/DopePics/RADOPE-3.png") center center no-repeat;
+    background: url("../img/DopePics/Dope.jpg") center center no-repeat;
     color: #fff;
     font-size: 14px;
     position: relative;

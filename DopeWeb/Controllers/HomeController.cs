@@ -62,7 +62,7 @@ namespace DopeWeb.Controllers
             var cartList = SessionHelper.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cartList");
             var productList = new List<Cart>();
             var products= new List<Products>();
-            foreach(var item in cartList) 
+            foreach(var item in cartList??new List<Cart>()) 
             {
                 var temp = _context.Products.Where(x => x.Id.Equals(item.Id)).FirstOrDefault();
                 productList.Add(new Cart
@@ -95,6 +95,18 @@ namespace DopeWeb.Controllers
         {
             SessionHelper.SetObjectAsJson(HttpContext.Session, "cartList", null);
 
+        }
+
+        public void Subscribe(string email) 
+        {
+            //check if email exists
+            var check = _context.Subscribers.Where(x => x.Email == email).FirstOrDefault();
+            if (check == null) 
+            {
+                _context.Subscribers.Add(new Subscribers { Email = email });
+                _context.SaveChanges();
+            }
+            
         }
 
 
