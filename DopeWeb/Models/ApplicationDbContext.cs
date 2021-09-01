@@ -15,8 +15,6 @@ namespace DopeWeb.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<Subscribers> Subscribers { get; set; }
         public DbSet<Orders> Orders { get; set; }
-
-
-
+        public DbSet<YoutubeSongs> YoutubeSongs { get; set; }
     }
 }

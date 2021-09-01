@@ -117,6 +117,29 @@ namespace DopeWeb.Migrations
                     b.ToTable("Subscribers");
                 });
 
+            modelBuilder.Entity("DopeWeb.Models.YoutubeSongs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("YoutubeSongs");
+                });
+
             modelBuilder.Entity("DopeWeb.Models.Orders", b =>
                 {
                     b.HasOne("DopeWeb.Models.Products", "Product")

@@ -52,8 +52,8 @@
                     <div class="col-md-4 d-flex align-items-stretch">
                         <div class="card" style='background-image: url("/img/DopePics/_MG_0103.jpg");'>
                             <div class="card-body">
-                                <h5 class="card-title cursiveFont"><a href="https://www.youtube.com/embed/UkwabxJig0o" target="_blank" id="textAnimate">Latest Release</a></h5>
-                                <iframe class="cardDesign" src="https://www.youtube.com/embed/UkwabxJig0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <h5 class="card-title cursiveFont"><a href="@ViewBag.LatestRelease" target="_blank" id="textAnimate">Latest Release</a></h5>
+                                <iframe class="cardDesign" src="@ViewBag.LatestRelease" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             </div>
                         </div>
@@ -90,37 +90,16 @@
 
                     <div class="testimonials-slider swiper-container" style="margin: 0px 80px;" data-aos="fade-up" data-aos-delay="100">
                         <div class="swiper-wrapper">
-
-                            <div class="swiper-slide">
-                                <div class="icon-box">
-                                    <iframe src="https://www.youtube.com/embed/xH0qaQOW2pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            @foreach (var item in ViewBag.Youtube)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="icon-box">
+                                        <iframe src="@item.Url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
                                 </div>
-                            </div><!-- End testimonial item -->
+                            }
 
-                            <div class="swiper-slide">
-                                <div class="icon-box">
-                                    <iframe class="" src="https://www.youtube.com/embed/UkwabxJig0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="icon-box">
-                                    <iframe src="https://www.youtube.com/embed/bwliE5Ir-Yw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="icon-box">
-                                    <iframe src="https://www.youtube.com/embed/_I8EKL7gx50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="icon-box">
-                                    <iframe src="https://www.youtube.com/embed/NTXvJgL0jG0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div><!-- End testimonial item -->
-
+                         
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -384,7 +363,7 @@
         //show dialog
         setTimeout(function () {
             $("#modalButton").click();
-        }, 4000)
+        }, 5000)
         //dialog
         $("#subscribeBtn").on('click', function () {            
             email = $("#email").val();

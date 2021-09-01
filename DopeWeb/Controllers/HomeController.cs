@@ -22,6 +22,9 @@ namespace DopeWeb.Controllers
 
         public IActionResult Index()
         {
+            var songs = _context.YoutubeSongs.ToList();
+            ViewBag.Youtube = songs;
+            ViewBag.LatestRelease = songs.OrderByDescending(x => x.ReleaseDate).FirstOrDefault().Url;
             return View();
         }
 
@@ -116,7 +119,6 @@ namespace DopeWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-
     public class Cart:Products {
         public int Quantity { get; set; }
     }
